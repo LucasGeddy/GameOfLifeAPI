@@ -4,15 +4,9 @@
     {
         public int BoardId { get; set; }
         public List<Cell> LivingCells { get; set; } = new();
-        public HashSet<(int, int)> LivingCellsCoords => LivingCells.Select(c => (c.PositionX, c.PositionY)).ToHashSet();
-        public int Size { get; init; }
+        private HashSet<(int, int)> LivingCellsCoords => LivingCells.Select(c => (c.PositionX, c.PositionY)).ToHashSet();
         public int Generation { get; set; } = 0;
         public bool GameOver { get; set; } = false;
-
-        public Board(int size)
-        {
-            Size = size;
-        }
 
         public void EvolveNextGeneration()
         {

@@ -1,7 +1,6 @@
 ﻿namespace GameOfLife.API.Requests
 {
     public record CreateBoardRequest(
-        int Size,
         IEnumerable<Seed> Seed
     );
 

@@ -4,6 +4,6 @@ namespace GameOfLife.Services.Interfaces
 {
     public interface IBoardCreationService
     {
-        IResult CreateBoard(CreateBoardRequest request);
+        Task<IResult> CreateBoardAsync(CreateBoardRequest request);
     }
 }

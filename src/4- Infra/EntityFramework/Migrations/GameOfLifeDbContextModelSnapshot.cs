@@ -35,12 +35,9 @@ namespace GameOfLife.Migrations
                     b.Property<int>("Generation")
                         .HasColumnType("int");
 
-                    b.Property<int>("Size")
-                        .HasColumnType("int");
-
                     b.HasKey("BoardId");
 
-                    b.ToTable("Boards", (string)null);
+                    b.ToTable("Boards");
                 });
 
             modelBuilder.Entity("GameOfLife.Domain.Entities.Cell", b =>
@@ -56,18 +53,16 @@ namespace GameOfLife.Migrations
 
                     b.HasKey("BoardId", "PositionX", "PositionY");
 
-                    b.ToTable("Cells", (string)null);
+                    b.ToTable("Cells");
                 });
 
             modelBuilder.Entity("GameOfLife.Domain.Entities.Cell", b =>
                 {
-                    b.HasOne("GameOfLife.Domain.Entities.Board", "Board")
+                    b.HasOne("GameOfLife.Domain.Entities.Board", null)
                         .WithMany("LivingCells")
                         .HasForeignKey("BoardId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Board");
                 });
 
             modelBuilder.Entity("GameOfLife.Domain.Entities.Board", b =>

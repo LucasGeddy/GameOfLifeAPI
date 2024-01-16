@@ -1,6 +1,5 @@
 ﻿using GameOfLife.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
 
 namespace GameOfLife.Infra.EntityFramework
 {
